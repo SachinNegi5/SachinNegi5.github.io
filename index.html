@@ -21,7 +21,7 @@
     let redirectUri = 'https://sachinnegi5.github.io/'
     let appId=  '1062308427452127'
     let appSecret = 'da4708c90c702db8c55d57f6c6389e68'
-    let code
+    let code,accessToken,userId
     function myFunction() {
         var url = window.location.href
         url = new URL(url);
@@ -35,7 +35,6 @@
     form.append("grant_type", "authorization_code");
     form.append("redirect_uri",redirectUri);
     form.append("code", code);
-
     var settings = {
     "async": true,
     "crossDomain": true,
@@ -47,10 +46,25 @@
     "mimeType": "multipart/form-data",
     "data": form
     }
-
     $.ajax(settings).done(function (response) {
     console.log(response);
+    accessToken = response.access_token
+    userId = response.user_id
     });
+
+
+    var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://graph.instagram.com/"+userId+"?fields=id,username&access_token="+accessToken,
+  "method": "GET",
+  "headers": {}
+}
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+
 }
 
 
