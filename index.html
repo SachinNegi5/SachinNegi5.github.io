@@ -68,8 +68,9 @@
 //   "url": "https://api.instagram.com/v1/users/self/?access_token="+accessToken,
 //   "url": "https://api.instagram.com/v1/tags/wwe/media/recent?client_id="+userId,
     // "url": "https://graph.instagram.com/yuvisofficial/children?access_token="+accessToken,
-    "url":"https://graph.instagram.com/17895695668004550?fields=id,media_type,media_url,username,timestamp&access_token="+accessToken,
-  "method": "GET",
+    // "url":"https://graph.instagram.com/17895695668004550?fields=id,media_type,media_url,username,timestamp&access_token="+accessToken,
+  "url": "https://api.instagram.com/v1/users/"+userId+"/follows?access_token="+accessToken,
+    "method": "GET",
   "headers": {}
 }
 
