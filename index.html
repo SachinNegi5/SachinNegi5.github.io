@@ -17,12 +17,14 @@
     <button onclick="myFunction() ;return false">Click me</button>
 </body>
 <script>
+    let redirectUri = 'https://sachinnegi5.github.io/'
+    let appId=  '1062308427452127'
+    let appSecret = 'da4708c90c702db8c55d57f6c6389e68'
     function myFunction() {
         var url = window.location.href
-        console.log(url)
         url = new URL(url);
         let code = url.searchParams.get("code")
-        alert(code)
+        console.log(code)
     }
 </script>
 
