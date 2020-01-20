@@ -16,6 +16,7 @@
             href="https://api.instagram.com/oauth/authorize?client_id=1062308427452127&redirect_uri=https://sachinnegi5.github.io/&scope=user_profile,user_media&response_type=code">Visit
             our HTML tutorial</a></p>
     <button onclick="myFunction() ;return false">Click me</button>
+    <button onclick="getUserInfoFunction() ;return false">Get user name</button>
 </body>
 <script>
     let redirectUri = 'https://sachinnegi5.github.io/'
@@ -52,7 +53,8 @@
     userId = response.user_id
     });
 
-
+    }
+    function getUserInfoFunction() {
     var newSettings = {
   "async": true,
   "crossDomain": true,
