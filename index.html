@@ -20,10 +20,11 @@
     let redirectUri = 'https://sachinnegi5.github.io/'
     let appId=  '1062308427452127'
     let appSecret = 'da4708c90c702db8c55d57f6c6389e68'
+    let code
     function myFunction() {
         var url = window.location.href
         url = new URL(url);
-        let code = url.searchParams.get("code")
+        code = url.searchParams.get("code")
         console.log(code)
     }
 
