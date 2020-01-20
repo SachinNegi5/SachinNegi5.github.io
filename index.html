@@ -53,7 +53,7 @@
     });
 
 
-    var settings = {
+    var newSettings = {
   "async": true,
   "crossDomain": true,
   "url": "https://graph.instagram.com/"+userId+"?fields=id,username&access_token="+accessToken,
@@ -61,7 +61,7 @@
   "headers": {}
 }
 
-$.ajax(settings).done(function (response) {
+$.ajax(newSettings).done(function (response) {
   console.log(response);
 });
 
