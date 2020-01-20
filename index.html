@@ -1,14 +1,29 @@
 <!-- Hello World -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
     HELLO GUYS WELCOME TO INSTAGRAM
-    <p><a href="https://api.instagram.com/oauth/authorize?client_id=1062308427452127&redirect_uri=https://sachinnegi5.github.io/&scope=user_profile,user_media&response_type=code">Visit our HTML tutorial</a></p>
+    <p><a
+            href="https://api.instagram.com/oauth/authorize?client_id=1062308427452127&redirect_uri=https://sachinnegi5.github.io/&scope=user_profile,user_media&response_type=code">Visit
+            our HTML tutorial</a></p>
+    <button onclick="myFunction() ;return false">Click me</button>
 </body>
+<script>
+    function myFunction() {
+        var url = window.location.href
+        console.log(url)
+        url = new URL(url);
+        let code = url.searchParams.get("code")
+        alert(code)
+    }
+</script>
+
 </html>
