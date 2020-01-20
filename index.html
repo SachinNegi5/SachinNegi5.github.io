@@ -49,6 +49,10 @@
         }
         $.ajax(settings).done(function (response) {
             console.log(response);
+            if(typeof(response)=='string'){
+                console.log("RESPONSE")
+                response = JSON.parse(response)
+            }
             accessToken = response.access_token
             userId = response.user_id
             console.log(accessToken +'----------------'+userId)
