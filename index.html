@@ -27,30 +27,31 @@
         url = new URL(url);
         code = url.searchParams.get("code")
         console.log(code)
-    }
+
 
     var form = new FormData();
-form.append("client_id", appId);
-form.append("client_secret",appSecret);
-form.append("grant_type", "authorization_code");
-form.append("redirect_uri",redirectUri);
-form.append("code", code);
+    form.append("client_id", appId);
+    form.append("client_secret",appSecret);
+    form.append("grant_type", "authorization_code");
+    form.append("redirect_uri",redirectUri);
+    form.append("code", code);
 
-var settings = {
-  "async": true,
-  "crossDomain": true,
-  "url": "https://api.instagram.com/oauth/access_token",
-  "method": "POST",
-  "headers": { },
-  "processData": false,
-  "contentType": false,
-  "mimeType": "multipart/form-data",
-  "data": form
+    var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://api.instagram.com/oauth/access_token",
+    "method": "POST",
+    "headers": { },
+    "processData": false,
+    "contentType": false,
+    "mimeType": "multipart/form-data",
+    "data": form
+    }
+
+    $.ajax(settings).done(function (response) {
+    console.log(response);
+    });
 }
-
-$.ajax(settings).done(function (response) {
-  console.log(response);
-});
 
 
 
