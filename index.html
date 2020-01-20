@@ -20,9 +20,9 @@
 </body>
 <script>
     let redirectUri = 'https://sachinnegi5.github.io/'
-    let appId=  '1062308427452127'
+    let appId = '1062308427452127'
     let appSecret = 'da4708c90c702db8c55d57f6c6389e68'
-    let code,accessToken,userId
+    let code, accessToken, userId
     function myFunction() {
         var url = window.location.href
         url = new URL(url);
@@ -30,44 +30,44 @@
         console.log(code)
 
 
-    var form = new FormData();
-    form.append("client_id", appId);
-    form.append("client_secret",appSecret);
-    form.append("grant_type", "authorization_code");
-    form.append("redirect_uri",redirectUri);
-    form.append("code", code);
-    var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "https://api.instagram.com/oauth/access_token",
-    "method": "POST",
-    "headers": { },
-    "processData": false,
-    "contentType": false,
-    "mimeType": "multipart/form-data",
-    "data": form
-    }
-    $.ajax(settings).done(function (response) {
-    console.log(response);
-    accessToken = response.access_token
-    userId = response.user_id
-    });
+        var form = new FormData();
+        form.append("client_id", appId);
+        form.append("client_secret", appSecret);
+        form.append("grant_type", "authorization_code");
+        form.append("redirect_uri", redirectUri);
+        form.append("code", code);
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "https://api.instagram.com/oauth/access_token",
+            "method": "POST",
+            "headers": {},
+            "processData": false,
+            "contentType": false,
+            "mimeType": "multipart/form-data",
+            "data": form
+        }
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+            accessToken = response.access_token
+            userId = response.user_id
+        });
 
     }
     function getUserInfoFunction() {
-    var newSettings = {
-  "async": true,
-  "crossDomain": true,
-  "url": "https://graph.instagram.com/"+userId+"?fields=id,username&access_token="+accessToken,
-  "method": "GET",
-  "headers": {}
-}
+        var newSettings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "https://graph.instagram.com/" + userId + "?fields=id,username&access_token=" + accessToken,
+            "method": "GET",
+            "headers": {}
+        }
 
-$.ajax(newSettings).done(function (response) {
-  console.log(response);
-});
+        $.ajax(newSettings).done(function (response) {
+            console.log(response);
+        });
 
-}
+    }
 
 
 
